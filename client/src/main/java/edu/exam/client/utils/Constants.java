@@ -15,6 +15,7 @@ public class Constants {
     public static final String NO_HISTORIES_FOUND_BY_ID_TEMPLATE = "No histories found by id: %d";
     public static final String NO_HISTORIES_FOUND_BY_NAME_TEMPLATE = "No histories found by name: %s";
     public static final String UNEXPECTED_RESPONSE = "Unexpected TCP response";
+    public static final String TCP_SERVER_ERROR = "Connection refused or timed out";
 
     // TABLE OUTPUT
     public static final String TABLE_HEADERS_TEMPLATE = "| %-15s | %-15s | %-15s | %-10s | %-10s |\n";
@@ -24,5 +25,8 @@ public class Constants {
     public static final String HIRE_COLUMN_NAME = "hire";
     public static final String DISMISS_COLUMN_NAME = "dismiss";
     public static final String MISSING_VALUE = "-";
+
+    // TCP CONFIGURATION
+    public static final int TCP_TIMEOUT = 10000;
 
 }

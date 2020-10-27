@@ -106,7 +106,7 @@ public class ServerConfiguration {
 
     @Bean
     public IntegrationFlow udpOutbound(@Value("${remote.udp.host}") String remoteHost,
-                                       @Value("${remote.udp.employee.port}") int employeePort) {
+                                       @Value("${remote.udp.port}") int employeePort) {
         return IntegrationFlows
                 .from(UDP_OUT_CHANNEL)
                 .transform(toJson())

@@ -24,7 +24,7 @@ public class Constants {
     public static final int POLLING_RATE = 500;
 
     // ERROR CONSTANTS
-    public static final String ACCESS_DENIED_PREFIX = "ACCESS DENIED: ";
+    public static final String ACCESS_DENIED_PREFIX = "Access denied: ";
     public static final String UNEXPECTED_UDP_RESPONSE = "Unexpected UDP response";
     public static final String INVALID_AUTH_TOKEN = "Authentication token is not valid";
 

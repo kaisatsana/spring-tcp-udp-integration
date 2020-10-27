@@ -10,19 +10,19 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.context.event.EventListener;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.ip.dsl.Tcp;
 import org.springframework.integration.ip.dsl.TcpOutboundGatewaySpec;
 import org.springframework.integration.ip.tcp.connection.MessageConvertingTcpMessageMapper;
-import org.springframework.integration.ip.tcp.connection.TcpConnectionFailedEvent;
+import org.springframework.integration.ip.tcp.connection.TcpConnectionSupport;
 import org.springframework.integration.ip.tcp.serializer.MapJsonSerializer;
 import org.springframework.integration.json.ObjectToJsonTransformer;
 import org.springframework.messaging.MessageChannel;
 
 import static edu.exam.client.utils.Constants.DEFAULT_CHANNEL;
+import static edu.exam.client.utils.Constants.TCP_TIMEOUT;
 
 @Configuration
 @Import(CommonConfiguration.class)
@@ -36,7 +36,8 @@ public class TCPConfiguration {
         return Tcp.outboundGateway(Tcp.netClient(host, port)
                 .serializer(serializer)
                 .deserializer(serializer)
-                .mapper(mapper));
+                .mapper(mapper))
+                .remoteTimeout(TCP_TIMEOUT);
     }
 
     @Bean
